@@ -8,11 +8,7 @@ import scheduler.Task;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
-import java.util.HashMap;
 import java.util.Map;
-import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
 /*
   Input file name is in the format of: path/to/file/filename.dot
