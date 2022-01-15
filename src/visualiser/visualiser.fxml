@@ -5,52 +5,58 @@
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0" prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1" fx:controller="visualiser.Controller">
-   <children>
-      <Pane prefHeight="800.0" prefWidth="1300.0">
-         <children>
-            <Pane fx:id="imageViewPane" layoutX="20.0" layoutY="70.0" prefHeight="310.0" prefWidth="402.0">
-               <children>
-                  <ImageView fx:id="taskGraphView" fitHeight="308.0" fitWidth="400.0" layoutX="1.0" layoutY="1.0" pickOnBounds="true" preserveRatio="true" />
-                  <Label fx:id="taskGraphLabel" layoutX="138.0" layoutY="147.0" text="No Task Graph Selected" />
-                  <ProgressIndicator fx:id="taskGraphIndicator" layoutX="183.0" layoutY="137.0" prefHeight="37.0" prefWidth="36.0" visible="false" />
-               </children>
-            </Pane>
-            <Button fx:id="selectScheduleButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false" onAction="#selectSchedule" text="Select Task Graph" />
-            <CheckBox fx:id="multithreadCheckbox" layoutX="484.0" layoutY="18.0" mnemonicParsing="false" selected="true" />
-            <Spinner fx:id="processorSpinner" layoutX="269.0" layoutY="14.0" prefHeight="25.0" prefWidth="62.0">
-               <valueFactory>
-                  <SpinnerValueFactory.IntegerSpinnerValueFactory initialValue="2" max="32" min="1" />
-               </valueFactory>
-            </Spinner>
-            <Label fx:id="processorsLabel" layoutX="150.0" layoutY="18.0" text="Number of Processes" />
-            <Label fx:id="multithreadingLabel" layoutX="358.0" layoutY="18.0" text="Enable Multithreading" />
-            <ProgressIndicator fx:id="progressIndicator" layoutX="1196.0" layoutY="711.0" prefHeight="53.0" prefWidth="44.0" visible="false" />
-            <Label layoutX="14.0" layoutY="46.0" text="Selected: " />
-            <Label fx:id="scheduleName" layoutX="65.0" layoutY="46.0" text="None" />
-            <Button fx:id="findScheduleButton" layoutX="1150.0" layoutY="761.0" mnemonicParsing="false" onAction="#findSchedule" text="Find Optimal Schedule" />
-            <LineChart fx:id="ramChart" animated="false" layoutX="-2.0" layoutY="434.0" legendVisible="false" prefHeight="303.0" prefWidth="435.0" title="RAM Usage">
-              <xAxis>
-                <CategoryAxis animated="false" label="Time" side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis animated="false" autoRanging="false" label="RAM Usage (%)" side="LEFT" tickUnit="10" upperBound="100" />
-              </yAxis>
-            </LineChart>
-            <Label layoutX="964.0" layoutY="638.0" text="Time Taken:" />
-            <Label fx:id="timeTakenLabel" layoutX="1036.0" layoutY="638.0" visible="false" />
-            <StackedBarChart fx:id="scheduleChart" animated="false" layoutX="839.0" layoutY="63.0" legendSide="TOP" legendVisible="false" prefHeight="584.0" prefWidth="349.0" title="Selected Schedule">
-              <xAxis>
-                <CategoryAxis side="BOTTOM" />
-              </xAxis>
-              <yAxis>
-                <NumberAxis side="LEFT" />
-              </yAxis>
-            </StackedBarChart>
-             <ListView fx:id="scheduleListView" layoutX="560.0" layoutY="99.0" prefHeight="524.0" prefWidth="279.0" />
-            <Button fx:id="saveScheduleButton" layoutX="654.0" layoutY="634.0" mnemonicParsing="false" onAction="#saveSchedule" text="Save Schedule" />
-            
-         </children>
-      </Pane>
-   </children>
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="800.0"
+      prefWidth="1300.0" xmlns="http://javafx.com/javafx/10.0.2-internal" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="visualiser.Controller">
+    <Pane prefHeight="800.0" prefWidth="1300.0">
+        <Pane fx:id="imageViewPane" layoutX="20.0" layoutY="70.0" prefHeight="310.0" prefWidth="402.0">
+            <ImageView fx:id="taskGraphView" fitHeight="308.0" fitWidth="400.0" layoutX="1.0" layoutY="1.0"
+                       pickOnBounds="true" preserveRatio="true"/>
+            <Label fx:id="taskGraphLabel" layoutX="138.0" layoutY="147.0" text="No Task Graph Selected"/>
+            <ProgressIndicator fx:id="taskGraphIndicator" layoutX="183.0" layoutY="137.0" prefHeight="37.0"
+                               prefWidth="36.0" visible="false"/>
+        </Pane>
+        <Button fx:id="selectScheduleButton" layoutX="14.0" layoutY="14.0" mnemonicParsing="false"
+                onAction="#selectSchedule" text="Select Task Graph"/>
+        <CheckBox fx:id="multithreadCheckbox" layoutX="484.0" layoutY="18.0" mnemonicParsing="false"
+                  selected="true"/>
+        <Spinner fx:id="processorSpinner" layoutX="269.0" layoutY="14.0" prefHeight="25.0" prefWidth="62.0">
+            <valueFactory>
+                <SpinnerValueFactory.IntegerSpinnerValueFactory initialValue="2" max="32" min="1"/>
+            </valueFactory>
+        </Spinner>
+        <Label fx:id="processorsLabel" layoutX="145.0" layoutY="18.0" text="Number of Processors:"/>
+        <Label fx:id="multithreadingLabel" layoutX="358.0" layoutY="18.0" text="Enable Multithreading"/>
+        <ProgressIndicator fx:id="progressIndicator" layoutX="1196.0" layoutY="711.0" prefHeight="53.0"
+                           prefWidth="44.0" visible="false"/>
+        <Label layoutX="14.0" layoutY="46.0" text="Selected: "/>
+        <Label fx:id="scheduleName" layoutX="65.0" layoutY="46.0" text="None"/>
+        <Button fx:id="findScheduleButton" layoutX="1150.0" layoutY="761.0" mnemonicParsing="false"
+                onAction="#findSchedule" text="Find Optimal Schedule"/>
+        <LineChart fx:id="ramChart" animated="false" layoutX="-2.0" layoutY="434.0" legendVisible="false"
+                   prefHeight="303.0" prefWidth="435.0" title="RAM Usage">
+            <xAxis>
+                <CategoryAxis animated="false" label="Time" side="BOTTOM"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis animated="false" autoRanging="false" label="RAM Usage (%)" side="LEFT" tickUnit="10"
+                            />
+            </yAxis>
+        </LineChart>
+        <Label layoutX="964.0" layoutY="638.0" text="Time Taken:"/>
+        <Label fx:id="timeTakenLabel" layoutX="1036.0" layoutY="638.0" visible="false"/>
+        <StackedBarChart fx:id="scheduleChart" animated="false" layoutX="839.0" layoutY="63.0" legendSide="TOP"
+                         legendVisible="false" prefHeight="584.0" prefWidth="349.0" title="Selected Schedule">
+            <xAxis>
+                <CategoryAxis side="BOTTOM"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis side="LEFT"/>
+            </yAxis>
+        </StackedBarChart>
+        <ListView fx:id="scheduleListView" layoutX="560.0" layoutY="99.0" prefHeight="524.0" prefWidth="279.0"/>
+        <Button fx:id="saveScheduleButton" layoutX="654.0" layoutY="634.0" mnemonicParsing="false"
+                onAction="#saveSchedule" text="Save Schedule"/>
+
+    </Pane>
 </HBox>
