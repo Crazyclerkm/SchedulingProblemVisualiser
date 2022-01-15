@@ -7,6 +7,8 @@ Download SchedulingProblemVisualiser.jar from the [v1.0.0 release](https://githu
 ## Usage
 Open SchedulingProblemVisualiser.jar
 
+Example task graphs can be found [here](https://github.com/Crazyclerkm/SchedulingProblemVisualiser/tree/master/examples)
+
 ![Default screen](https://puu.sh/ICGRx/7485f43fa9.png)
 
 You can select an input .dot file that represents a task graph using the "Select Task Graph" button located in the top left.
