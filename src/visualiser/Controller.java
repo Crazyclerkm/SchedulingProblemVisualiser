@@ -360,7 +360,6 @@ public class Controller {
             Task<Image> graphvizTask = new Task<Image>() {
                 @Override
                 protected Image call() throws Exception {
-                    Graphviz.useEngine(new GraphvizV8Engine());
                     Graphviz.fromGraph(g).width(400).height(308).render(Format.PNG).toFile(out);
                     return new Image(String.valueOf(out.toURI()));
                 }
